@@ -1,15 +1,19 @@
 package APIs_Graficas;
 
 import java.awt.BorderLayout;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class TestandoComboBOx {
+public class TestandoComboBOx implements ActionListener {
 	private JLabel Nome, Email;
 	private JTextField Name, Emai;
 	private JButton Exibir, Salvar;
@@ -35,8 +39,11 @@ public class TestandoComboBOx {
 
     Exibir = new JButton("Exibir");
     Salvar = new JButton("Salvar");
+    Exibir.addActionListener(this);
+    Salvar.addActionListener(this);
+    Options.addActionListener(this);
 
-	
+    
 	Painel.setLayout(new BorderLayout());
 	Painel.add(subPanelB, BorderLayout.CENTER);
 	Painel.add(subPanelN, BorderLayout.NORTH);
@@ -55,16 +62,32 @@ public class TestandoComboBOx {
 	janela.getContentPane().add(Painel);
 	janela.pack();
 	janela.setVisible(true);
+	}// fim construtor
+	
+	
+	
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == Exibir) {
+			JOptionPane.showMessageDialog(janela, "Nome: " + Name.getText());	
+		}else {
+		JOptionPane.showMessageDialog(janela, "BOTAO APERTADO!" + e.getActionCommand());
+		}
 	}
 	
 	
 	
 	public static void main(String[] args) {
+
 		TestandoComboBOx tela = new TestandoComboBOx("Teste");
 		
 		
 		
 
 	}
+
+
 
 }
