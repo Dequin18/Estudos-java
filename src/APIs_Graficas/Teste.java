@@ -3,6 +3,8 @@ package APIs_Graficas;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.NoRouteToHostException;
 
 import javax.swing.JButton;
@@ -11,10 +13,11 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Teste {
+public class Teste implements ActionListener {
 JFrame telaInicial;
 JPanel PainelIiniciao, subpainel, subpainel2, subpainel3;
 JLabel op1, op2;
@@ -54,6 +57,7 @@ public Teste () {
 	BARRAMENU.add(MenuInicial);
 	MenuInicial.add(opt1);
 	MenuInicial.add(opt2);
+	btnExibir.addActionListener(this);
 	PainelIiniciao.add(subpainel, BorderLayout.CENTER);
 	PainelIiniciao.add(subpainel3, BorderLayout.SOUTH);
 	PainelIiniciao.add(subpainel2, BorderLayout.NORTH);
@@ -71,6 +75,15 @@ Teste t1 = new Teste();
 		
 		
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == btnExibir) {
+			JOptionPane.showMessageDialog(telaInicial, "Bota exibir");
+			
+		}
+		
 	}
 
 }
